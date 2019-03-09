@@ -1,5 +1,5 @@
 chrome.tabs.getSelected(null,function(tab) {
-    var tablink = tab.url;
-    var site = tablink.substring(tablink.indexOf(":") + 3, tablink.indexOf("/"))
-    document.getElementById("sitename").innerHTML = tablink;
+    var tablink = new URL(tab.url);
+    var site = tablink.hostname;
+    document.getElementById("sitename").innerHTML = site + " may be trying to pull a fast one on you!";
 })
