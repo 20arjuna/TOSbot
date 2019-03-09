@@ -9,4 +9,4 @@ function loading()
   console.log("Loading baby");
 }
 
-document.getElementById('analyze').addEventListener('click', loading)
+document.getElementById("analyze").addEventListener('click', loading);
