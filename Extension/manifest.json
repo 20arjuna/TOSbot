@@ -1,7 +1,13 @@
 {
     "name": "TOSbot",
     "version": "1.0",
-    "description": "Analyzes the terms of service of the websites you vist so you don't have to",
-    "manifest_version": 2
-    
+    "description": "Analyzes the terms of service of the websites you vist so you don't have to.",
+    "manifest_version": 2,
+    "browser_action":
+    {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+    },
+    "permissions": ["activeTab"]
+
   }
