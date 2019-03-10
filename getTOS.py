@@ -1,10 +1,15 @@
 from googlesearch import search
 print('running')
-query = "google.com privacy policy"
-resultList = []
+query = "mail.google.com privacy policy"
+
 print('entering loop now!')
-for url in search('redis terms of service', tld='com', lang='en', stop=5):
-    print(url)
+
+if((query.__contains__('google')) or (query.__contains__('youtube')) or (query.__contains__('gmail'))):
+    privacy_policy = "https://policies.google.com/privacy?hl=en"
+else:
+    for url in search(query, tld='com', lang='en', stop=1):
+        privacy_policy=url
+print(privacy_policy)
 
 # soup = BeautifulSoup(response.text,"lxml")
 # for item in soup.select(".r a"):
