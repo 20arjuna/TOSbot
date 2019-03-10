@@ -23,11 +23,13 @@ def mainTOSBOT():
     time.sleep(10)
     num = 1
     if(sitename.__contains__('facebook') and num ==1):
+        print('1st if')
         num+=1
         return render_template('facebook1.html')
-    print('missed fisrt if')
     elif(sitename.__contains__('duckduckgo')):
+        print('2nd elif')
         return render_template('facebook+duckduck.html')
+    print('last resort')
     return render_template('facebook2.html')
 def getPrivacyPolicy():
     j = json.loads(request.data.decode())
