@@ -19,11 +19,13 @@ def mainTOSBOT():
     # return send_file('static/tos.txt')
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
+    print(sitename)
     time.sleep(10)
     num = 1
     if(sitename.__contains__('facebook') and num ==1):
         num+=1
         return render_template('facebook1.html')
+    print('missed fisrt if')
     elif(sitename.__contains__('duckduckgo')):
         return render_template('facebook+duckduck.html')
     return render_template('facebook2.html')
