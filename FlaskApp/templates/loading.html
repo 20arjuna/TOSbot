@@ -26,9 +26,16 @@
         text-align: center;
       }
     </style>
+    <script src ="/Users/20arjuna/Desktop/TOSbot/FlaskApp/static/script.js"</script>
+    <script>
+      console.log(site);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/getPrivacyUrl', true);
+      xhr.send(site);
+    </script>
   </head>
   <body>
-    <h1>Loading</h1>
+    <h1>Hang in there</h1>
     <img id="bigpic" src="/static/loading.gif" width="150" height="150">
   </body>
 </html>
