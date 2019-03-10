@@ -2,7 +2,8 @@ from bs4 import BeautifulSoup
 import getHTML
 def getArticleText(webtext):
     articletext = ""
-    soup = BeautifulSoup(webtext)
+    #soup = BeautifulSoup(webtext)
+    soup = webtext
     pElements = (soup.findAll('p'))
     for tag in soup.findAll('p'):
         try:
