@@ -14,7 +14,8 @@ def hello():
 def mainTOSBOT():
     url = getPrivacyPolicy()
     scrapePrivacyPolicy(url)
-    return send_file('tos.txt')
+    print('got here')
+    return app.send_static_file('static/tos.txt')
 def getPrivacyPolicy():
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
@@ -26,14 +27,14 @@ def getPrivacyPolicy():
     print('entering loop now!')
 
     if((query.__contains__('google')) or (query.__contains__('youtube')) or (query.__contains__('gmail'))):
-        privacy_policy = "https://policies.google.com/privacy?hl=en"
+        privacy_policy = "http://policies.google.com/privacy?hl=en"
     else:
         for url in search(query, tld='com', lang='en', stop=1):
             privacy_policy=url
     return(privacy_policy)
 
 def scrapePrivacyPolicy(url):
-    text_file = open("tos.txt", "w")
+    text_file = open("static/tos.txt", "w")
     text_file.write(articleText.getArticle(url))
 
 
