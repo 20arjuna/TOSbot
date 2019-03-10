@@ -1,4 +1,5 @@
 from flask import Flask,render_template, Response, request, redirect, url_for, send_file
+import json
 app = Flask(__name__)
 
 
@@ -7,7 +8,10 @@ app = Flask(__name__)
 def hello():
     return render_template('loading.html')
 @app.route('/getPrivacyUrl', methods=['POST'])
-def getPrivacyUrl(sitename):
+def getPrivacyUrl():
+    j = json.loads(request.data.decode())
+    sitename = j.get("sitename")
+
     from googlesearch import search
     print('running')
     query = sitename + " privacy policy"
@@ -19,6 +23,7 @@ def getPrivacyUrl(sitename):
     else:
         for url in search(query, tld='com', lang='en', stop=1):
             privacy_policy=url
+    print(privacy_policy)
     return(privacy_policy)
 if __name__ == "__main__":
     app.run()
