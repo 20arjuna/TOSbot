@@ -33,7 +33,8 @@ def getPrivacyPolicy():
     return(privacy_policy)
 
 def scrapePrivacyPolicy(url):
-    print(articleText.getArticle(url))
+    text_file = open("tos.txt", "w")
+    text_file.write(articleText.getArticle(url))
 
 
 if __name__ == "__main__":
