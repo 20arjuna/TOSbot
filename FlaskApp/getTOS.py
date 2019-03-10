@@ -5,30 +5,22 @@ import articleText
 import time
 app = Flask(__name__)
 
-num = 1
 @app.route("/")
 
 def hello():
 
-    time.sleep(10)
-    print("hello")
-    if(num ==1):
-        num+=1
-        return render_template('facebook1.html')
-    elif(num ==2):
-        num+=1
-        return render_template('facebook+duckduck.html')
-    return render_template('facebook2.html')
+    return(mainTOSBOT())
+    #return render_template('facebook2.html')
 @app.route('/mainTOSBOT', methods=['POST'])
 def mainTOSBOT():
-    # url = getPrivacyPolicy()
-    # scrapePrivacyPolicy(url)
-    # print('got here')
-    # return send_file('static/tos.txt')
-    #
-    time.sleep(2)
+    j = json.loads(request.data.decode())
+    sitename = j.get("sitename")
+    time.sleep(5)
     print("hello")
-    return render_template('facebook2.html')
+    if(sitename.__contains__('facebook')):
+        return render_template('facebook1.html')
+    elif(sitename.__contains__('duckduck')):
+        return render_template('facebook+duckduck.html')
 def getPrivacyPolicy():
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
