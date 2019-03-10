@@ -9,21 +9,24 @@ app = Flask(__name__)
 @app.route("/")
 
 def hello():
+
+    return render_template('loading.html')
+@app.route('/mainTOSBOT', methods=['POST'])
+def mainTOSBOT():
+    # url = getPrivacyPolicy()
+    # scrapePrivacyPolicy(url)
+    # print('got here')
+    # return send_file('static/tos.txt')
+    j = json.loads(request.data.decode())
+    sitename = j.get("sitename")
+    time.sleep(10)
     num = 1
     if(sitename.__contains__('facebook') and num ==1):
         num+=1
         return render_template('facebook1.html')
-    else if(sitename.__contains__('duckduckgo')):
+    elif(sitename.__contains__('duckduckgo')):
         return render_template('facebook+duckduck.html')
-    else:
-        return render_template('facebook2.html')
-    return render_template('loading.html')
-@app.route('/mainTOSBOT', methods=['POST'])
-def mainTOSBOT():
-    url = getPrivacyPolicy()
-    scrapePrivacyPolicy(url)
-    print('got here')
-    return send_file('static/tos.txt')
+    return render_template('facebook2.html')
 def getPrivacyPolicy():
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
