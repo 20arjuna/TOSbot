@@ -7,8 +7,8 @@ chrome.tabs.getSelected(null,function(tab) {
 
 
 });
-function onClick()
-{
+
+document.getElementById("analyze").addEventListener("click", function onClick(){
   fetch("http://127.0.0.1:5000/mainTOSBOT", {
     method: "POST",
     mode: "no-cors",
@@ -23,10 +23,11 @@ function onClick()
   }).catch(function(err) {
     console.error(err);
   })
-}
+});
+
 // function loading()
 // {
 //   console.log("Loading baby");
 // }
 //
-document.getElementById("analyze").addEventListener('click', onClick);
+// document.getElementById("analyze").addEventListener('click', loading);
