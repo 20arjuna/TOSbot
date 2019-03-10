@@ -1,6 +1,8 @@
 from flask import Flask,render_template, Response, request, redirect, url_for, send_file
 import json
 import getHTML
+import articleText
+
 app = Flask(__name__)
 
 
@@ -12,6 +14,7 @@ def hello():
 def mainTOSBOT():
     url = getPrivacyPolicy()
     scrapePrivacyPolicy(url)
+    return "donzo"
 def getPrivacyPolicy():
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
@@ -28,8 +31,9 @@ def getPrivacyPolicy():
         for url in search(query, tld='com', lang='en', stop=1):
             privacy_policy=url
     return(privacy_policy)
+
 def scrapePrivacyPolicy(url):
-    return(url)
+    print(articleText.getArticle(url))
 
 
 if __name__ == "__main__":
