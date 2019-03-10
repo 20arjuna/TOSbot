@@ -1,6 +1,6 @@
 from googlesearch import search
 print('running')
-query = "mail.google.com privacy policy"
+query = "<From JS> privacy policy"
 
 print('entering loop now!')
 
