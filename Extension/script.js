@@ -3,12 +3,11 @@ chrome.tabs.getSelected(null,function(tab) {
     var tablink = new URL(tab.url);
     site = tablink.hostname;
     document.getElementById("sitename").innerHTML = site + " may be trying to pull a fast one on you!";
-})
-$.ajax({
-  type: "POST",
-  url: "pythoncode.py",
-  data: { param: site}
 });
+jQuery.support.cors = true;
+const xhr = new XMLHttpRequest();
+xhr.open('POST', 'http://localhost:5000/');
+xhr.send(site);
 
 // function loading()
 // {
