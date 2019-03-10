@@ -11,6 +11,13 @@ else:
         privacy_policy=url
 print(privacy_policy)
 
+def sitenamePullingFast():
+    chrome.tabs.getSelected(null,function(tab) {
+        var tablink = new URL(tab.url);
+        var site = tablink.hostname;
+        document.getElementById("sitename").innerHTML = site + " may be trying to pull a fast one on you!";
+    })
+
 # soup = BeautifulSoup(response.text,"lxml")
 # for item in soup.select(".r a"):
 #     f_url = item.get('href')
