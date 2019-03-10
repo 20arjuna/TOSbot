@@ -15,7 +15,7 @@ def mainTOSBOT():
     url = getPrivacyPolicy()
     scrapePrivacyPolicy(url)
     print('got here')
-    return app.send_static_file('static/tos.txt')
+    return send_file('static/tos.txt')
 def getPrivacyPolicy():
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
