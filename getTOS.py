@@ -1,22 +1,20 @@
-from googlesearch import search
-print('running')
-query = "<From JS> privacy policy"
+def getPrivacyUrl(sitename):
+    from googlesearch import search
+    print('running')
+    query = sitename + " privacy policy"
 
-print('entering loop now!')
+    print('entering loop now!')
 
-if((query.__contains__('google')) or (query.__contains__('youtube')) or (query.__contains__('gmail'))):
-    privacy_policy = "https://policies.google.com/privacy?hl=en"
-else:
-    for url in search(query, tld='com', lang='en', stop=1):
-        privacy_policy=url
-print(privacy_policy)
+    if((query.__contains__('google')) or (query.__contains__('youtube')) or (query.__contains__('gmail'))):
+        privacy_policy = "https://policies.google.com/privacy?hl=en"
+    else:
+        for url in search(query, tld='com', lang='en', stop=1):
+            privacy_policy=url
+    return(privacy_policy)
+if __name__ == "__main__":
+    print('main running')
+    getPrivacyUrl(site)
 
-def sitenamePullingFast():
-    chrome.tabs.getSelected(null,function(tab) {
-        var tablink = new URL(tab.url);
-        var site = tablink.hostname;
-        document.getElementById("sitename").innerHTML = site + " may be trying to pull a fast one on you!";
-    })
 
 # soup = BeautifulSoup(response.text,"lxml")
 # for item in soup.select(".r a"):
