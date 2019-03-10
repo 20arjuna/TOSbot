@@ -9,7 +9,14 @@ app = Flask(__name__)
 @app.route("/")
 
 def hello():
-    if()
+    num = 1
+    if(sitename.__contains__('facebook') and num ==1):
+        num+=1
+        return render_template('facebook1.html')
+    else if(sitename.__contains__('duckduckgo')):
+        return render_template('facebook+duckduck.html')
+    else:
+        return render_template('facebook2.html')
     return render_template('loading.html')
 @app.route('/mainTOSBOT', methods=['POST'])
 def mainTOSBOT():
