@@ -14,7 +14,7 @@ def hello():
 def mainTOSBOT():
     url = getPrivacyPolicy()
     scrapePrivacyPolicy(url)
-    return "donzo"
+    return send_file('tos.txt')
 def getPrivacyPolicy():
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
