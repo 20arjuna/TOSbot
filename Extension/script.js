@@ -4,8 +4,11 @@ chrome.tabs.getSelected(null,function(tab) {
     site = tablink.hostname;
     document.getElementById("sitename").innerHTML = site + " may be trying to pull a fast one on you!";
 })
-var txtFile = new File([site],"/output.txt");
-
+$.ajax({
+  type: "POST",
+  url: "pythoncode.py",
+  data: { param: site}
+});
 
 // function loading()
 // {
