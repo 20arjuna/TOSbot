@@ -6,14 +6,9 @@ chrome.tabs.getSelected(null,function(tab) {
 })
 
 
-function loading()
-{
-  $.ajax({
-       type: "POST",
-       url: "http://127.0.0.1:5000/",
-       data: { param: site }
-   });
-  console.log("Loading baby");
-}
-
-document.getElementById("analyze").addEventListener('click', loading);
+// function loading()
+// {
+//   console.log("Loading baby");
+// }
+//
+// document.getElementById("analyze").addEventListener('click', loading);

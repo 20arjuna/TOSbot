@@ -16,8 +16,7 @@ def getPrivacyUrl(sitename):
             privacy_policy=url
     return(privacy_policy)
 if __name__ == "__main__":
-    print('main running')
-    getPrivacyUrl(site)
+    app.run()
 
 
 # soup = BeautifulSoup(response.text,"lxml")
