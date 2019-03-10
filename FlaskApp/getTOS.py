@@ -2,13 +2,14 @@ from flask import Flask,render_template, Response, request, redirect, url_for, s
 import json
 import getHTML
 import articleText
-
+import time
 app = Flask(__name__)
 
 
 @app.route("/")
 
 def hello():
+    if()
     return render_template('loading.html')
 @app.route('/mainTOSBOT', methods=['POST'])
 def mainTOSBOT():
