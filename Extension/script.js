@@ -10,7 +10,7 @@ function loading()
 {
   $.ajax({
        type: "POST",
-       url: "/getTOS.py",
+       url: "http://127.0.0.1:5000/",
        data: { param: site }
    });
   console.log("Loading baby");
