@@ -4,6 +4,9 @@ chrome.tabs.getSelected(null,function(tab) {
     site = tablink.hostname;
     document.getElementById("sitename").innerHTML = site + " may be trying to pull a fast one on you!";
 
+
+
+});
 function onClick()
 {
   fetch("http://127.0.0.1:5000/mainTOSBOT", {
@@ -21,9 +24,6 @@ function onClick()
     console.error(err);
   })
 }
-
-});
-
 // function loading()
 // {
 //   console.log("Loading baby");
