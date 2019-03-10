@@ -1,5 +1,6 @@
 from flask import Flask,render_template, Response, request, redirect, url_for, send_file
 import json
+import getHTML
 app = Flask(__name__)
 
 
@@ -7,8 +8,11 @@ app = Flask(__name__)
 
 def hello():
     return render_template('loading.html')
-@app.route('/getPrivacyUrl', methods=['POST'])
-def getPrivacyUrl():
+@app.route('/mainTOSBOT', methods=['POST'])
+def mainTOSBOT():
+    url = getPrivacyPolicy()
+    scrapePrivacyPolicy(url)
+def getPrivacyPolicy():
     j = json.loads(request.data.decode())
     sitename = j.get("sitename")
 
@@ -23,8 +27,11 @@ def getPrivacyUrl():
     else:
         for url in search(query, tld='com', lang='en', stop=1):
             privacy_policy=url
-    print(privacy_policy)
     return(privacy_policy)
+def scrapePrivacyPolicy(url):
+    return(url)
+
+
 if __name__ == "__main__":
     app.run()
 

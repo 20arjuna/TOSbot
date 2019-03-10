@@ -4,7 +4,7 @@ chrome.tabs.getSelected(null,function(tab) {
     site = tablink.hostname;
     document.getElementById("sitename").innerHTML = site + " may be trying to pull a fast one on you!";
 
-    fetch("http://127.0.0.1:5000/getPrivacyUrl", {
+    fetch("http://127.0.0.1:5000/mainTOSBOT", {
       method: "POST",
       mode: "no-cors",
       headers: {
